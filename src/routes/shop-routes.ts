@@ -9,6 +9,29 @@ let arrayOfShops:shop[] = [
     {id: 333, name: "Bike Shop", rating:3},
 ];
 
+// using post to create
+let nextID = 444;
+shopRoutes.post("/", (req, res) => {
+    let newShop:shop = req.body; //setting newShop properties to request properties
+    newShop.id = nextID;
+    nextID += 111;
+    arrayOfShops.push(newShop);
+    res.status(201)
+    res.json(newShop);
+})
+
+//using delete to delete
+shopRoutes.delete("/:id", (req, res) => {
+    let tobeDeleted:number = Number.parseInt(req.params.id);
+    for (let i = 0; i < arrayOfShops.length; i++) {
+        if (arrayOfShops[i].id === tobeDeleted) {
+            arrayOfShops.splice(i, 1);
+        }
+    }
+    res.status(204);
+    res.json("delete was successful");
+})
+
 shopRoutes.get("/", (req, res) => {
     res.json(arrayOfShops);
 })
