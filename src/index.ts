@@ -7,6 +7,8 @@ import languageRoutes from './routes/language-routes';
 import userRoutes from './routes/user-routes';
 import search from './routes/search-routes'
 import shopRoutes from './routes/shop-routes';
+//importing MovieRoutes
+import MovieRoutes from './routes/Movie-routes'
 //creates an instance of an express server
 const app = express();
 
@@ -20,6 +22,8 @@ app.use("/languages/", languageRoutes); //localhost:3000/languages
 app.use("/users/", userRoutes); //localhost:3000/users
 app.use("/", search); //localhost:3000/search
 app.use("/api/shops", shopRoutes);
+//Calling Movie API
+app.use("/api/movies", MovieRoutes);
 //Directly set routes
 
 app.get("/students", (req, res) => {

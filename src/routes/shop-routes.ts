@@ -29,7 +29,7 @@ shopRoutes.get("/:id", (req, res) => {
 //adding the query ?minRaiting=4.0
 shopRoutes.get("/minRaiting", (req, res) => {
     let rated:shop[] = [];
-    let potato:number = Number.parseInt(req.query.minRaiting as string);
+    let potato:number = Number.parseFloat(req.query.minRaiting as string);
     for (let i = 0; i > arrayOfShops.length; i++) {
         if(arrayOfShops[i].rating > potato){
             rated.push(arrayOfShops[i]);
