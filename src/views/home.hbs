@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>You are on the home page.</h1>
+    {{!-- uses name and state that was passed in app-routes.ts --}}
+    <h2>Welcome {{name}}</h2> 
+    <p>Lives in {{state}}</p>
+        <ul>
+        {{#each pets}}
+            <li>{{name}} is a {{type}}</li>
+        {{/each}}
+    </ul>
+    {{#if message}}
+    <p>{{message}}</p>
+    {{else}}
+    <p>No Messages</p>
+    {{/if}}
+
+    <nav>
+        {{!-- setting up routes to take you to another webpage --}}
+        <a href="/api/shops">Shops API</a>
+    </nav>
+{{!-- using a form to make a POST --}}
+    <form action="/api-shops" method="POST">
+        Name: <input type="text" name="name">
+        Rating: <input type="number" name="rating" step=0.1>
+        <input type="submit">
+    </form>
+</body>
+</html>

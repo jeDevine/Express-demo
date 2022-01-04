@@ -12,7 +12,7 @@ let arrayOfShops:shop[] = [
 // using post to create
 let nextID = 444;
 shopRoutes.post("/", (req, res) => {
-    let newShop:shop = req.body; //setting newShop properties to request properties
+    let newShop:shop = {id: nextID, name: req.body.name, rating: req.body.rating}; //setting newShop properties to request properties
     newShop.id = nextID;
     nextID += 111;
     arrayOfShops.push(newShop);
