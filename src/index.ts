@@ -1,5 +1,6 @@
 // require the express module
 import express from 'express';
+import cors from 'cors';
 
 //imported routes
 import routes from './routes/app-routes';
@@ -16,6 +17,7 @@ const app = express();
 const port = 3000; //default is 3000
 
 //calling routes set in other files
+app.use(cors());
 app.use(express.json());
 app.use("/", routes); //localhost:3000
 app.use("/languages/", languageRoutes); //localhost:3000/languages
