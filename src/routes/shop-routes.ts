@@ -13,7 +13,6 @@ let arrayOfShops:shop[] = [
 let nextID = 444;
 shopRoutes.post("/", (req, res) => {
     let newShop:shop = {id: nextID, name: req.body.name, rating: req.body.rating}; //setting newShop properties to request properties
-    newShop.id = nextID;
     nextID += 111;
     arrayOfShops.push(newShop);
     res.status(201)

@@ -11,7 +11,8 @@
     {{!-- uses name and state that was passed in app-routes.ts --}}
     <h2>Welcome {{name}}</h2> 
     <p>Lives in {{state}}</p>
-        <ul>
+    {{!-- when a simple array "this" can be used when objects use property names --}}
+    <ul>
         {{#each pets}}
             <li>{{name}} is a {{type}}</li>
         {{/each}}
@@ -21,13 +22,13 @@
     {{else}}
     <p>No Messages</p>
     {{/if}}
-
+    <img src="../public/random_image.jpg" alt="">
     <nav>
         {{!-- setting up routes to take you to another webpage --}}
         <a href="/api/shops">Shops API</a>
     </nav>
-{{!-- using a form to make a POST --}}
-    <form action="/api-shops" method="POST">
+{{!-- using a form to make a POST on /api/shops--}}
+    <form action="/api/shops" method="POST">
         Name: <input type="text" name="name">
         Rating: <input type="number" name="rating" step=0.1>
         <input type="submit">
